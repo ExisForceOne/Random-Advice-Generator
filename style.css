@@ -4,13 +4,18 @@
     box-sizing: border-box;
 }
 
+button {
+    border: none;
+    outline: none;
+    background-color: none;
+}
+
 :root {
     --body-color: hsl(218, 23%, 16%);
     --card-color: hsl(217, 19%, 24%);
     --text-color: hsl(193, 38%, 86%);
     --neon-color: hsl(150, 100%, 66%);
 }
-
 
 html {
     font-family: 'Manrope', sans-serif;
@@ -25,24 +30,44 @@ body {
     background-color: var(--body-color);
 }
 
-
 .card {
+    width: min(535px, 90%);
+    padding: 50px 30px 70px;
+    position: relative;
     display: flex;
     flex-direction: column;
-    padding: 50px 30px;
-    background-color: var(--card-color);
-    color: var(--text-color);
-    max-width: 450px;
     text-align: center;
+    color: var(--text-color);
+    background-color: var(--card-color);
     border-radius: 10px;
 }
 
 .advice-id{
-    color: var(--neon-color);
     letter-spacing: 0.25em;
     font-size: 0.8rem;
+    color: var(--neon-color);
 }
 .advice {
     margin: 25px 0;
+    line-height: 150%;
     font-size: 1.75rem;
+}
+
+.random-advice-btn {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border-radius: 50%;
+    background-color: var(--neon-color);
+    transition: .2s;
+}
+
+.random-advice-btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0 35px var(--neon-color);
 }
