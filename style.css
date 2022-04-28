@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --body-color: hsl(218, 23%, 16%);
+    --card-color: hsl(217, 19%, 24%);
+    --text-color: hsl(193, 38%, 86%);
+    --neon-color: hsl(150, 100%, 66%);
+}
+
+
+html {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--body-color);
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 30px;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    max-width: 450px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.advice-id{
+    color: var(--neon-color);
+    letter-spacing: 0.25em;
+    font-size: 0.8rem;
+}
+.advice {
+    margin: 25px 0;
+    font-size: 1.75rem;
+}
