@@ -1,4 +1,8 @@
+const url = "https://api.adviceslip.com/advice";
 const divider = document.querySelector(".divider");
+const adviceIDInfo = document.querySelector(".advice-id-info");
+const adviceInfo = document.querySelector(".advice-info");
+const randomAdviceBtn = document.querySelector(".random-advice-btn");
 
 const changeSVG = () => {
   const width = window.innerWidth;
@@ -7,21 +11,29 @@ const changeSVG = () => {
 	.svg`;
 };
 
-function debounce(func, timeout = 300) {
+const debouncedChangeSVG = () => {
   let timer;
   return () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      func();
-    }, timeout);
+      changeSVG();
+    }, 300);
   };
-}
+};
 
-window.addEventListener(
-  "resize",
-  debounce(() => {
-    changeSVG();
-  })
-);
+const getAdvice = async () => {
+  const res = await fetch(url);
+  const { slip } = await res.json();
+  console.log(slip);
+  adviceIDInfo.textContent = slip.id;
+  adviceInfo.textContent = slip.advice;
+};
 
-changeSVG();
+const init = () => {
+  window.addEventListener("resize", debouncedChangeSVG());
+  randomAdviceBtn.addEventListener("click", getAdvice);
+  changeSVG();
+  getAdvice();
+};
+
+init();
