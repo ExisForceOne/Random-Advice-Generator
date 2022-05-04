@@ -71,3 +71,9 @@ body {
     cursor: pointer;
     box-shadow: 0 0 35px var(--neon-color);
 }
+
+.random-advice-btn:disabled {
+    background-color: hsl(150, 62%, 22%);
+    box-shadow: none;
+    cursor: default;
+}
